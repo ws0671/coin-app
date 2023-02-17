@@ -189,14 +189,14 @@ function Coin() {
             </OverviewItem>
           </Overview>
           <Tabs>
-            <Tab isActive={priceMatch !== null}>
-              <Link to="price">Price</Link>
-            </Tab>
             <Tab isActive={chartMatch !== null}>
               <Link to="chart">Chart</Link>
             </Tab>
+            <Tab isActive={priceMatch !== null}>
+              <Link to="price">Price</Link>
+            </Tab>
           </Tabs>
-          <Outlet />
+          <Outlet context={{ coinId }} />
         </>
       )}
     </Container>
