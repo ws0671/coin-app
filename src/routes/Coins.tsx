@@ -8,10 +8,12 @@ import { isDarkAtom } from "../atoms";
 
 const Title = styled.h1`
   color: ${(props) => props.theme.accentColor};
+  font-size: 50px;
+  font-weight: 600;
 `;
 const Container = styled.div`
   padding: 0px 20px;
-  max-width: 480px;
+  max-width: 400px;
   margin: 0 auto;
 `;
 
@@ -26,12 +28,15 @@ const CoinsList = styled.ul``;
 const Coin = styled.li`
   background-color: ${(props) => props.theme.cardBgColor};
   color: ${(props) => props.theme.textColor};
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   a {
+    font-weight: 600;
+    font-size: 20px;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
     transition: color 0.2s ease-in;
   }
   &:hover {
@@ -57,7 +62,7 @@ interface CoinInterface {
 const Img = styled.img`
   width: 35px;
   height: 35px;
-  margin-right: 10px;
+  margin-right: 15px;
 `;
 
 interface ICoin {
@@ -67,8 +72,6 @@ interface ICoin {
 }
 
 function Coins() {
-  const setDarkAtom = useSetRecoilState(isDarkAtom);
-  const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
 
   return (
@@ -78,7 +81,6 @@ function Coins() {
       </Helmet>
       <Header>
         <Title>코인</Title>
-        <button onClick={toggleDarkAtom}>Toggle Mode</button>
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>
@@ -91,7 +93,7 @@ function Coins() {
                   src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}
 `}
                 />
-                {coin.name} &rarr;
+                {coin.name}
               </Link>
             </Coin>
           ))}

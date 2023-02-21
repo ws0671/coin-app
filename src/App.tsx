@@ -1,10 +1,11 @@
 import React from "react";
 import Router from "./Router";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { Helmet } from "react-helmet";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { darkTheme, lightTheme } from "./theme";
 import { useState } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkAtom } from "./atoms";
 
 const GlobalStyle = createGlobalStyle`
@@ -64,14 +65,58 @@ a{
   color:inherit;
 }
 `;
+
+const Toggle = styled.div<{ isDark: boolean }>`
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.2s ease-in;
+  color: #9c88ff;
+  background-color: ${(props) => (props.isDark ? "#454545" : "white")};
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+  }
+`;
+interface IMaterialIcon {
+  name: string;
+}
+
+function MaterialIcon({ name }: IMaterialIcon) {
+  return <span className="material-symbols-outlined">{name}</span>;
+}
 function App() {
   const isDark = useRecoilValue(isDarkAtom);
+  const setDarkAtom = useSetRecoilState(isDarkAtom);
+  const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <Helmet>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
+          />
+        </Helmet>
         <GlobalStyle />
         <Router />
-        <ReactQueryDevtools initialIsOpen={true}></ReactQueryDevtools>
+        <Toggle isDark={isDark} onClick={toggleDarkAtom}>
+          <MaterialIcon name={isDark ? "light_mode" : "dark_mode"} />
+        </Toggle>
+
+        {/* <ReactQueryDevtools initialIsOpen={true}></ReactQueryDevtools> */}
       </ThemeProvider>
     </>
   );

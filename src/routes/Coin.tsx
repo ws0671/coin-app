@@ -30,6 +30,7 @@ const Header = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const Overview = styled.div`
@@ -75,6 +76,22 @@ const Tab = styled.span<{ isActive: boolean }>`
     padding: 7px 0px;
     display: block;
   }
+`;
+
+const Back = styled.div`
+  font-size: 30px;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  padding: 10px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 interface RouteState {
   state: { name: string };
@@ -161,8 +178,17 @@ function Coin() {
         <title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </title>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
+        />
       </Helmet>
       <Header>
+        <Link to="/">
+          <Back>
+            <span className="material-symbols-outlined">arrow_back_ios</span>
+          </Back>
+        </Link>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
