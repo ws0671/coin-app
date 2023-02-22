@@ -99,17 +99,17 @@ function App() {
   const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
   return (
     <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
+        />
+      </Helmet>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <Helmet>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
-          />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
-          />
-        </Helmet>
         <GlobalStyle />
         <Router />
         <Toggle isDark={isDark} onClick={toggleDarkAtom}>

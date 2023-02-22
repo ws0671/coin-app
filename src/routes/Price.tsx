@@ -36,10 +36,10 @@ interface Iticker {
 function Price() {
   const { tickersData } = useOutletContext<Iticker>();
   console.log(tickersData);
-  const oneDay = +tickersData.quotes.USD.percent_change_24h;
-  const oneWeek = +tickersData.quotes.USD.percent_change_7d;
-  const oneMonth = +tickersData.quotes.USD.percent_change_30d;
-  const oneYear = +tickersData.quotes.USD.percent_change_1y;
+  const oneDay = +tickersData.quotes.USD?.percent_change_24h;
+  const oneWeek = +tickersData.quotes.USD?.percent_change_7d;
+  const oneMonth = +tickersData.quotes.USD?.percent_change_30d;
+  const oneYear = +tickersData.quotes.USD?.percent_change_1y;
 
   return (
     <Container>

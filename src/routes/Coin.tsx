@@ -188,7 +188,7 @@ function Coin() {
         />
       </Helmet>
       <Header>
-        <Link to="/">
+        <Link to={process.env.PUBLIC_URL + "/"}>
           <Back>
             <span className="material-symbols-outlined">arrow_back_ios</span>
           </Back>
@@ -212,7 +212,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Price:</span>
-              <span>{tickersData?.quotes.USD.price.toFixed(3)}</span>
+              <span>{tickersData?.quotes?.USD.price.toFixed(3)}</span>
             </OverviewItem>
           </Overview>
           <Description>{infoData?.description}</Description>

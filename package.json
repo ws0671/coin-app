@@ -11,6 +11,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "apexcharts": "^3.37.0",
+    "gh-pages": "^5.0.0",
     "query": "^0.2.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
@@ -28,7 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,5 +54,6 @@
   "devDependencies": {
     "@types/react-helmet": "^6.1.6",
     "@types/styled-components": "^5.1.26"
-  }
+  },
+  "homepage": "https://ws0671.github.io/coin-app"
 }
