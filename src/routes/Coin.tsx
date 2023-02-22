@@ -92,6 +92,10 @@ const Back = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.5 ease-in-out;
+  &:hover {
+    color: ${(props) => props.theme.accentColor};
+  }
 `;
 interface RouteState {
   state: { name: string };
@@ -119,7 +123,7 @@ interface InfoData {
   last_data_at: string;
 }
 
-interface PriceData {
+export interface PriceData {
   id: string;
   name: string;
   symbol: string;
@@ -223,14 +227,14 @@ function Coin() {
             </OverviewItem>
           </Overview>
           <Tabs>
-            <Tab isActive={chartMatch !== null}>
-              <Link to="chart">Chart</Link>
-            </Tab>
             <Tab isActive={priceMatch !== null}>
               <Link to="price">Price</Link>
             </Tab>
+            <Tab isActive={chartMatch !== null}>
+              <Link to="chart">Chart</Link>
+            </Tab>
           </Tabs>
-          <Outlet context={{ coinId }} />
+          <Outlet context={{ coinId, tickersData }} />
         </>
       )}
     </Container>
