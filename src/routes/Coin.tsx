@@ -188,7 +188,7 @@ function Coin() {
         />
       </Helmet>
       <Header>
-        <Link to={process.env.PUBLIC_URL + "/"}>
+        <Link to="/">
           <Back>
             <span className="material-symbols-outlined">arrow_back_ios</span>
           </Back>
