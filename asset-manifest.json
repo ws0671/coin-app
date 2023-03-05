@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/netflix/static/js/main.8d8bfaf5.js",
-    "static/js/787.980b19c2.chunk.js": "/netflix/static/js/787.980b19c2.chunk.js",
-    "index.html": "/netflix/index.html",
-    "main.8d8bfaf5.js.map": "/netflix/static/js/main.8d8bfaf5.js.map",
-    "787.980b19c2.chunk.js.map": "/netflix/static/js/787.980b19c2.chunk.js.map"
+    "main.js": "/coin-app/static/js/main.8bdccb09.js",
+    "static/js/787.980b19c2.chunk.js": "/coin-app/static/js/787.980b19c2.chunk.js",
+    "index.html": "/coin-app/index.html",
+    "main.8bdccb09.js.map": "/coin-app/static/js/main.8bdccb09.js.map",
+    "787.980b19c2.chunk.js.map": "/coin-app/static/js/787.980b19c2.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.8d8bfaf5.js"
+    "static/js/main.8bdccb09.js"
   ]
 }
